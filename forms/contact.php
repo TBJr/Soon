@@ -1,0 +1,22 @@
+<?php
+/**
+* Requires the "PHP Email Form" library
+* The library should be uploaded to: vendor/php-email-form/php-email-form.php
+*/
+
+    // Replace contact@example.com with your real receiving email address
+    $receiving_email_address = 'contact@example.com';
+
+    if( file_exists($php_email_form = '../assets/vendor/php-email-form/php-email-form.php' )) {
+        include( $php_email_form );
+    } else {
+        die( 'Unable to load the "PHP Email Form" Library!');
+    }
+
+    $contact = new PHP_Email_Form;
+    $contact->ajax = true;
+
+    $contact->to = $receiving_email_address;
+    $contact->from_name = $_POST['name'];
+    $contact->form_email = $_POST['email'];
+    $contact->subject = $_Post['subject'];
