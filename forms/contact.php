@@ -33,9 +33,9 @@
 
     $contact->honeypot = $_POST['first_name'];
 
-    if($_POST['privacy'] !='accept') {
-        die('Please, accept our terms of service and privacy acy policy');
-    }
+    // if($_POST['privacy'] !='accept') {
+    //     die('Please, accept our terms of service and privacy acy policy');
+    // }
 
     $contact->cc = array('info@luxdental.gm', 'backendbackbonner@outlook.com');
 
