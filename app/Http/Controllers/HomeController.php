@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\ContactUs;
 use Illuminate\Support\Facades\Mail;
 use Alert;
+use App\Models\Subscriber;
 
 class HomeController extends Controller
 {
@@ -86,6 +87,29 @@ class HomeController extends Controller
         //
     }
 
+    public function newsletterSaveData(Request $request)
+    {
+        $this->validate($request, [
+            'email' => 'required'
+        ]);
+
+        $subscribers = Subscriber::where('email', '=', $request->input('email'))->first();
+
+        if ($subscribers === null) {
+            // User does not exist
+            $subscriber = new Subscriber;
+                $subscriber->email = $request->email;
+
+                $subscriber->save();
+                Alert::toast('Thanks for subscribing with us!','success');
+        } else {
+            // User exits
+            Alert::toast('Sorry! You\'ve already subscribed.','error');
+        }
+
+        return redirect()->back();
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -118,6 +142,6 @@ class HomeController extends Controller
 
         // Alert::success('Success', 'Thanks for contacting us!');
         Alert::toast('Thanks for contacting us!','success');
-        return redirect()->back()->with(['success' => 'Thanks for contacting us!']);
+        return redirect()->back();
     }
 }

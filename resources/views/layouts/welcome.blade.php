@@ -28,7 +28,8 @@
         <footer id="footer">
             <div class="container">
                 <div class="copyright">
-                    &copy; Copyright <strong><span>TBJ</span></strong>. All Rights Reserved
+                    &copy; Copyright <a href="https://backend-backboners.github.io/portfolio" style="font-size: 15px;color: rgba(19, 186, 216, 0.582)" ><Strong>Lux Dental Clinic</Strong></a>. All Rights Reserved
+                    <br> <a href="https://backend-backboners.github.io/portfolio" style="color: rgba(19, 186, 216, 0.582)"><strong><span>TBJ</span></strong></a>
                 </div>
             </div>
         </footer>

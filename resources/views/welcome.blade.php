@@ -25,14 +25,11 @@
 
         <div class="subscribe">
             <h4>Subscribe now to get the latest updates!</h4>
-            <form action="forms/notify.php" method="post" role="form" class="php-email-form">
+            <form action="{{ route('newsletter') }}" method="POST" class="php-email-form">
+                @csrf
+
                 <div class="subscribe-form">
                     <input type="email" name="email"><input type="submit" value="Subscribe">
-                </div>
-                <div class="mt-2">
-                    <div class="loading">Loading</div>
-                    <div class="error-message"></div>
-                    <div class="sent-message">Your notification request was sent. Thank you!</div>
                 </div>
             </form>
         </div>
@@ -53,21 +50,27 @@
                 <div class="col-lg-6">
                     <h2>LUX DENTAL CLINIC</h2>
                     <h3>One of the best dental clinic in The Gambia.</h3>
+                    <p>
+                        We at Lux Dental Clinic have consultants under both general as well as cosmetic dentistry, who cater to every need related to dental care.
+                        Please find below a list of services the we provide.
+                    </p>
                 </div>
                 <div class="col-lg-6 pt-4 pt-lg-0">
-                    <p>
-                        Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                        culpa qui officia deserunt mollit anim id est laborum
-                    </p>
+
                     <ul>
-                        <li><i class="bi bi-check"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequa</li>
-                        <li><i class="bi bi-check"></i> Duis aute irure dolor in reprehenderit in voluptate velit</li>
-                        <li><i class="bi bi-check"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in</li>
+                        <li><i class="bi bi-check"></i> Replacement of missing teeth. (e.g. <b>dental implants</b>, <b>fixed caps or bridges</b>, <b>removable dentures</b>, etc..)</li>
+                        <li><i class="bi bi-check"></i> Cavity Filling. (<b> Depending on need and circumstance of the patient</b>)</li>
+                        <li><i class="bi bi-check"></i> Teeth Whitening / Bleaching.</li>
+                        <li><i class="bi bi-check"></i> Single Sitting Root Canal Treatment.</li>
+                        <li><i class="bi bi-check"></i> Orthodontic Treatment.</li>
+                        <li><i class="bi bi-check"></i> Extraction Procedures.</li>
+                        <li><i class="bi bi-check"></i> Cleaning and Polishing</li>
+                        <li><i class="bi bi-check"></i> Cosmetic Procedures.</li>
                     </ul>
                     <p class="fst-italic">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua.
+                        We understand how some patients, especially, may feel anxious before a treatment or precedure, and may even refuse to
+                        co-operate. In consideration of this, we also offer all our dental treatments under concious sedation, in a
+                        single siting. This is carried out with extreme care and admission to a hospital us not required.
                     </p>
                 </div>
             </div>
