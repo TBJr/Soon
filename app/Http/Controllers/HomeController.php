@@ -15,8 +15,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+    public function index(){
         //
         return view('welcome');
     }
@@ -26,8 +25,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
+    public function create(){
         //
     }
 
@@ -37,8 +35,7 @@ class HomeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
+    public function store(Request $request){
         //
     }
 
@@ -48,8 +45,7 @@ class HomeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
+    public function show($id){
         //
     }
 
@@ -59,8 +55,7 @@ class HomeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
+    public function edit($id){
         //
     }
 
@@ -71,8 +66,7 @@ class HomeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
+    public function update(Request $request, $id){
         //
     }
 
@@ -82,13 +76,12 @@ class HomeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
+    public function destroy($id){
         //
     }
 
-    public function newsletterSaveData(Request $request)
-    {
+    public function newsletterSaveData(Request $request){
+
         $this->validate($request, [
             'email' => 'required'
         ]);
@@ -116,31 +109,30 @@ class HomeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function contactSaveData(Request $request)
-    {
+    public function contactSaveData(Request $request){
+
         $request->validate([
             'name' => 'required',
             'email' => 'required|email',
             'subject' => 'required',
-            'message' => 'required',
+            'messages' => 'required',
         ]);
 
         $input = $request->all();
 
-        ContactUs::create($input);
-
-        // Send mail to admin
         Mail::send('emails.contactUs', array(
             'name' => $input['name'],
             'email' => $input['email'],
             'subject' => $input['subject'],
-            'message' => $input['message'],
+            'messages' => $input['messages'],
         ), function($message) use ($request){
             $message->from($request->email);
             $message->to('backendbackbonner@outlook.com', 'Admin')->subject($request->get('subject'));
         });
 
         // Alert::success('Success', 'Thanks for contacting us!');
+
+        ContactUs::create($input);
         Alert::toast('Thanks for contacting us!','success');
         return redirect()->back();
     }

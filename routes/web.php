@@ -21,4 +21,4 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::post('/newsletter', [\App\Http\Controllers\HomeController::class, 'newsletterSaveData'])->name('newsletter');
-Route::post('/contact-form', [\App\Http\Controllers\HomeController::class, 'contactSaveData'])->name('contactUs');
+Route::post('/contact', [\App\Http\Controllers\HomeController::class, 'contactSaveData'])->name('contactUs');

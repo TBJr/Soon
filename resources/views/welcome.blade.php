@@ -136,7 +136,7 @@
                         </div>
 
                         <div class="form-group mt-3">
-                            <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+                            <textarea type="text" class="form-control" name="messages" id="messages" rows="5" placeholder="Message" required></textarea>
                         </div>
 
                         <!-- <div class="form-check form-group ps-0">

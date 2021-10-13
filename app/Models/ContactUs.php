@@ -15,6 +15,6 @@ class ContactUs extends Model
         'name',
         'email',
         'subject',
-        'message'
+        'messages'
     ];
 }
